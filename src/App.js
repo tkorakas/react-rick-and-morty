@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Characters from './Characters';
 import CharacterInfo from './CharacterInfo';
+import mainLogo from'./Rick_and_Morty_logo.png';
 
 import './App.css';
 
 axios.defaults.baseURL = 'https://rickandmortyapi.com/api/';
 
-const pages = {
-  'characters': Characters,
-  'character': CharacterInfo
-}
 class App extends Component {
   state = {
     characters: [],
@@ -44,18 +41,19 @@ class App extends Component {
 
   loadCharacter = (id) => {
     axios.get(`character/${id}`)
-    // .then(console.log)
     .then(res => this.setState({character: res.data, page: 'character'}))
     .catch(console.log)
   }
 
   viewCharacter = (id) => {
+    console.log(id)
     this.loadCharacter(id);
     this.setState({id})
   }
 
   back = (e) => {
-    this.setState({page: 'characters'})
+    e.preventDefault();
+    this.setState({page: 'characters'});
   }
 
   render() {
@@ -64,6 +62,9 @@ class App extends Component {
       <CharacterInfo {...character} back={this.back}/>
     return (
       <React.Fragment>
+        <div className="logo">
+          <img src={mainLogo} />
+        </div>
         {renderPage}
       </React.Fragment>
     );

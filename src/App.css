@@ -1,4 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 ul {
   display: grid;
@@ -12,6 +15,8 @@ li {
 
 .character--title {
   margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
 }
 
 a {
@@ -21,8 +26,24 @@ a {
 
 .pagination {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .character-info {
   text-align: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+.character--image {
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo img {
+    width: 100%;
+  }
 }

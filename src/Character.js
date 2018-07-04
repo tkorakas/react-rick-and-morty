@@ -10,7 +10,7 @@ const Character = (props) => {
           </div>
           <div>
           <Overdrive id={props.name} duration={500} animationDelay={2}>
-            <img alt={props.name} src={props.image} />
+            <img className="character--image" alt={props.name} src={props.image} />
           </Overdrive>
           </div>
         </React.Fragment>
