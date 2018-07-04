@@ -54,10 +54,14 @@ class App extends Component {
     this.setState({id})
   }
 
+  back = (e) => {
+    this.setState({page: 'characters'})
+  }
+
   render() {
     const {characters, page, character} = this.state;
     const renderPage = page ==='characters' ?  <Characters characters={characters} next={this.next} previous={this.previous} viewCharacter={this.viewCharacter}/> :
-      <CharacterInfo {...character}/>
+      <CharacterInfo {...character} back={this.back}/>
     return (
       <React.Fragment>
         {renderPage}

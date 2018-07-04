@@ -9,7 +9,7 @@ const Character = (props) => {
             <strong><a onClick={(e) => { e.preventDefault(); props.viewCharacter(props.id) }} href="#">{props.name}</a></strong>
           </div>
           <div>
-          <Overdrive id={props.name} animationDelay={2}>
+          <Overdrive id={props.name} duration={500} animationDelay={2}>
             <img alt={props.name} src={props.image} />
           </Overdrive>
           </div>

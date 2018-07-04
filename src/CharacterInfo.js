@@ -8,6 +8,7 @@ const CharacterInfo = (props) => {
       {props.id ?
         <React.Fragment>
           <div className="character--title">
+            <a href="#" onClick={props.back}>&lt;back</a>
             <strong>{props.name}</strong>
           </div>
           <div>
