@@ -20,8 +20,7 @@ class App extends Component {
 
   loadCharacters = (url) => {
     axios.get(url)
-    // .then(console.log)
-    .then(res => this.setState({characters: res.data.results, next: res.data.info.next, previous: res.data.info.next, count: res.data.info.count}))
+    .then(res => this.setState({characters: res.data.results, next: res.data.info.next, previous: res.data.info.prev, count: res.data.info.count}))
     .catch(console.log)
   }
 
@@ -57,8 +56,8 @@ class App extends Component {
   }
 
   render() {
-    const {characters, page, character} = this.state;
-    const renderPage = page ==='characters' ?  <Characters characters={characters} next={this.next} previous={this.previous} viewCharacter={this.viewCharacter}/> :
+    const {characters, page, character, next, previous} = this.state;
+    const renderPage = page ==='characters' ?  <Characters characters={characters} next={next ? this.next : null} previous={previous ? this.previous : null} viewCharacter={this.viewCharacter}/> :
       <CharacterInfo {...character} back={this.back}/>
     return (
       <React.Fragment>
